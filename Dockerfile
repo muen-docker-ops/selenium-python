@@ -8,10 +8,6 @@ RUN rm -f /etc/apt/sources.list.d/ubuntu.sources && \
     sed -i '/^deb http/!d' /etc/apt/sources.list && \
     dpkg-divert --remove /lib32 || true && \
     apt-get update && \
-    apt-get install -y --no-install-recommends python3 python3-pip && \
+    apt-get install -y --no-install-recommends python3-full && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# 设置 JAVA_HOME 环境变量
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-ENV PATH="$JAVA_HOME/bin:$PATH"
