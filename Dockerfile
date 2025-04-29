@@ -8,6 +8,6 @@ RUN rm -f /etc/apt/sources.list.d/ubuntu.sources && \
     sed -i '/^deb http/!d' /etc/apt/sources.list && \
     dpkg-divert --remove /lib32 || true && \
     apt-get update && \
-    apt-get install -y --no-install-recommends python3-full && \
+    apt-get install -y --no-install-recommends python3.9 python3.9-dev python3-pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
